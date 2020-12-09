@@ -50,22 +50,22 @@
       --h3-font-size: 1.25rem;
       --normal-font-size: 1rem;
       --small-font-size: 0.875rem;
-      --smallery-font-size: 0.8rem;
+      --smaller-font-size: 0.8rem;
    }
 }
 
 /* ========== Basic ========== */
-/* *,
+*,
 ::before,
 ::after {
    box-sizing: border-box;
-} */
+}
 
 html {
    scroll-behavior: smooth;
 }
 
-/* body {
+body {
    margin: var(--header-height) 0 0 0;
    font-family: var(--body-font);
    font-size: var(--font-size-smaller);
@@ -95,14 +95,17 @@ ul {
 
 a {
    text-decoration: none;
+   font-size: 1rem;
+   font-weight: var(--font-bolder);
 }
 
-img {
+/* img {
    max-width: 100%;
    height: auto;
    display: block;
 } */
 
+/* ========== Button ========== */
 button {
    margin: 0 auto;
    padding: 0.35rem 0.5rem;
@@ -118,20 +121,59 @@ button {
    color: blue;
 }
 
-/* ========== Header background change ========== */
-.scroll-header {
-   background-color: var(--primary-color-lighter);
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* ========== Video ========== */
+video {
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   border: 4px solid lightgray;
+   border-radius: 10px;
+   box-shadow: 2px 2px 4px lightblue;
+   outline: none;
 }
 
-.scroll-header .nav-logo,
-.scroll-header .nav-toggle,
-.scroll-header .nav-link {
-   color: var(--primary-color-dark);
+.header-video video,
+.footer-video video {
+   width: 100%;
+   height: 100%;
+   border: 10px solid;
+   border-image-slice: 1;
+   border-width: 17px;
+   border-image-source: linear-gradient(to left, #ca280c, #743ad5);
+   border-radius: 15px;
+   box-shadow: 2px 2px 4px lightblue;
+   outline: none;
 }
 
-.scroll-header .nav-items {
-   background-color: var(--primary-color-lighter);
+/* ========== Card Design ========== */
+.card {
+   color: #1313d0;
+   border-radius: 10px;
+   box-shadow: 5px 5px 15px lightgray;
+   cursor: pointer;
+   transition: all 0.4s ease-in;
+   -webkit-transition: all 0.4s ease-in;
+   -moz-transition: all 0.4s ease-in;
+}
+
+@media (max-width: 960px) and (min-width: 500px) {
+   .card {
+      width: 100%;
+      height: 100%;
+      color: #1313d0;
+      border-radius: 10px;
+      box-shadow: 5px 5px 15px lightgray;
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+      -webkit-transition: all 0.4s ease-in;
+      -moz-transition: all 0.4s ease-in;
+   }
+}
+
+.card img {
+   width: 60%;
+   height: 60%;
+   margin: 0 auto;
 }
 
 /* ========== Scroll top ========== */
@@ -166,22 +208,9 @@ button {
 }
 
 /* ========== Home ========== */
-.home {
-   background-color: #000;
-   overflow: hidden;
-}
-
-.home-container {
-   position: relative;
-   height: calc(100vh - var(--header-height));
-   grid-template-rows: repeat(2, max-content);
-   align-items: space-around;
-   row-gap: 2rem;
-}
-
-.home-data {
-   padding-left: 1.5rem;
-   z-index: var(--z-tooltip);
+.header-main h1 {
+   font-size: var(--h1-font-size);
+   font-weight: var(--font-boldest);
 }
 
 /* ========== Home Button ========== */
@@ -218,69 +247,77 @@ button {
 }
 
 /* ========== Testimonials ========= */
-.testimonials-item img {
-   width: 55px;
+.testimonials {
+   font-size: var(--font-size-normal);
+   margin: 0 auto;
 }
 
-#testimonials-item-one {
-   background-color: orangered;
-   background-size: 50%;
+.testimonials-item img {
+   width: 80px;
 }
 
 .testimonials-item {
-   width: 22%;
-   padding: 0.5rem;
-   margin-right: 15px;
+   height: 18%;
+   padding: 1rem;
    box-shadow: 2px 2px 4px lightgray;
-   border-radius: 0 5px 5px 0;
+   border-radius: 0 20px 20px 0;
+   position: relative;
+   background-size: cover;
+}
+
+.testimonials-item::after {
+   height: 100%;
+   content: " ";
+   position: absolute;
+   top: 0;
+   width: 50%;
+   left: 0;
+   z-index: -5;
+}
+
+#testimonials-item-one::after {
+   background-color: lightcyan;
+}
+
+#testimonials-item-two::after {
+   background-color: rgb(247, 153, 153);
+}
+
+#testimonials-item-three::after {
+   background-color: #e8e8a3;
+}
+
+#testimonials-item-four::after {
+   background-color: #add8e6;
 }
 
 /* ========== Speciality ========== */
-.speciality-half-one {
-   width: 60%;
-}
-
-.speciality-half-one img {
+.speciality-item-left img {
    width: 30px;
-   margin: 0 5px 50px 0;
+   height: 30px;
+   margin: 0 5px 55px 0;
 }
 
-.speciality-half-two {
-   width: 30%;
-}
-
-.speciality-half-two img {
-   width: 100%;
-   margin-left: 40px;
+.speciality-item-right img {
+   width: 80%;
+   height: 100%;
 }
 
 /* ========== Contacts ========== */
-.contact-container h4 {
-   color: blue;
-   font-weight: bold;
-   text-align: center;
-}
-
-.contact-item {
-   width: 25%;
-}
 
 .contact-item:hover {
+   cursor: pointer;
    color: blue;
 }
 
-/* ========== Image ========== */
-.contact-items img {
-   width: 100px;
+.contact-item img {
+   width: 200px;
    border: 2px solid lightgray;
    border-radius: 50%;
    padding: 10px;
 }
 
 /* ========== Live Classes ========== */
-.live-class-container h4 {
-   text-align: center;
-}
 
 .live-class-items img {
    width: 30px;
@@ -290,44 +327,33 @@ button {
 
 .live-class-items iframe {
    width: 100%;
-   height: 80%;
+   height: 100%;
 }
 
 /* ========== Advanced Preparation ========== */
-.preparation-container video {
-   width: 100%;
-   height: 100%;
-   padding: 10px;
-   border: 4px solid lightgray;
-   border-radius: 10px;
-   box-shadow: 2px 2px 4px lightblue;
-   outline: none;
-}
 
-/* ========== Courses ========== */
-.course-container img {
-   width: 60%;
-   height: 60%;
-}
-
-.course-item {
-   margin-right: 30px;
-   padding: 5px 20px;
-   box-shadow: 2px 2px 4px lightgray;
-   border-radius: 10px;
-}
-
-/* ========== Books ========== */
-
-#books .card {
+/* ========== Expert Tutor ========== */
+.tutor-card {
    border-radius: 10px;
    box-shadow: 5px 5px 15px lightgray;
+   cursor: pointer;
    transition: all 0.4s ease-in;
    -webkit-transition: all 0.4s ease-in;
    -moz-transition: all 0.4s ease-in;
 }
 
-.card img {
-   width: 60%;
-   margin: 0 auto;
+.tutor img {
+   width: 40%;
+   /* height: 50%; */
+   border-radius: 50%;
+}
+
+/* ========== Feedback ========== */
+.student {
+   min-height: 50%;
+   max-height: 60%;
+}
+
+.student img {
+   border-radius: 50%;
 }
